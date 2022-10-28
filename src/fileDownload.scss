@@ -1,0 +1,78 @@
+/* 
+  NOTE: Ideally repeated values such as colors or font metrics should be
+  pulled from a design system construct to ensure consistency (e.g. SASS maps, 
+  CSS varialbles). Colors will be used as an example of this, though use of 
+  such patterns are ideally more comprehensive.
+*/
+
+$colors: (
+  white: #fff,
+  black: #000,
+  green: #80D232,
+  gray1: #eee,
+  gray2: #e5e5e5
+);
+
+:root {
+  font: 1rem sans-serif;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+}
+
+a {
+  color: map-get($colors, black);
+  text-decoration: none;
+}
+
+.actionBar {
+  border: solid 1px map-get($colors, gray1);
+  border-width: 1px 1px 0 1px;
+  font: 1.4rem/1.4 sans-serif;
+  display: grid;
+  grid-template-columns: 3rem 1fr 1fr 4fr;
+  padding: 1rem;
+  width: 100%;
+}
+
+.fileListing {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: solid 1px map-get($colors, gray1);
+  thead {
+    border-bottom: solid 1px map-get($colors, gray1);
+    font-size: 1.1rem;      
+  }
+  tbody tr {
+    &:hover {
+      background: map-get($colors, gray2);
+    }
+    &.selected {
+      background: map-get($colors, gray2);
+    }
+  }
+  tr {
+    display: grid;
+    grid-template-columns: 3rem 1fr 1fr 3fr 1fr;
+    &:not(:last-child) {
+      border-bottom: solid 1px map-get($colors, gray1);
+    }
+  }
+  td {
+    border-width: 1px 0;
+    gap: 1px;
+    overflow: hidden;
+    padding: 1rem;
+  }
+}
+
+circle {
+  fill: map-get($colors, green);
+}
+
+.no-wrap	{
+  white-space: nowrap;
+}
+
